@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" style="-fx-padding: 20;" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.ProfileController">
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Button text="← Retour" onAction="#handleRetour"/>
+        <Label text="MON PROFIL" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <GridPane hgap="10" vgap="10" style="-fx-background-color: #f0f0f0; -fx-padding: 15;">
+        <Label text="Pseudo :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="lblPseudo" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Rang :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="lblRank" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Temps total :" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label fx:id="lblTotalTime" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Jetons dispos :" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label fx:id="lblTokens" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    </GridPane>
+
+    <Label text="Mes Jeux possédés :" style="-fx-font-weight: bold;"/>
+    <ListView fx:id="listOwnedGames" VBox.vgrow="ALWAYS"/>
+
+    <HBox spacing="10">
+        <Button text="Supprimer mon compte" onAction="#handleDeleteAccount" style="-fx-text-fill: red;"/>
+    </HBox>
+</VBox>

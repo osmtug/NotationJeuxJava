@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" style="-fx-padding: 25;" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.UserDetailController">
+    <Button text="← Retour" onAction="#handleRetour"/>
+
+    <Label fx:id="lblUserTitle" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="20" vgap="10">
+        <Label text="Profil :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label fx:id="lblType" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Durée globale :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label fx:id="lblTotalTime" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Activités :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label fx:id="lblStats" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <Separator/>
+
+    <VBox fx:id="vboxSpecialInfo" spacing="10">
+        <Label text="Détails avancés (Visibilité Testeur/Admin)" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label fx:id="lblEvaluationKarma" text="Utilité des avis postés : +0 / -0"/>
+        <Label text="Jeux possédés (triés par durée) :"/>
+        <ListView fx:id="listGames" prefHeight="200"/>
+    </VBox>
+
+    <HBox fx:id="adminActions" spacing="15" style="-fx-background-color: #fce4ec; -fx-padding: 10;">
+        <Button text="Promouvoir" onAction="#handlePromote" style="-fx-background-color: #4caf50; -fx-text-fill: white;"/>
+        <Button fx:id="btnBlock" text="Bloquer/Débloquer" onAction="#handleToggleBlock"/>
+        <Button text="Supprimer" onAction="#handleDelete" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

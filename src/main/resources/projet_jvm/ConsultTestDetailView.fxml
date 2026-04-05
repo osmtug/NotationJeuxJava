@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.ConsultTestDetailController" style="-fx-padding: 20;">
+    <Button text="← Retour" onAction="#handleRetour"/>
+
+    <Label fx:id="labelTitle" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <VBox spacing="10" prefWidth="250">
+            <Label text="1. Choisir le support :" style="-fx-font-weight: bold;"/>
+            <ListView fx:id="listPlatforms" prefHeight="120"/>
+
+            <Label text="2. Tests disponibles :" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="tableTests" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colAuthor" text="Testeur" prefWidth="120"/>
+                    <TableColumn fx:id="colScore" text="Note" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <ScrollPane fitToWidth="true" HBox.hgrow="ALWAYS">
+            <VBox fx:id="testDetailPane" spacing="10" style="-fx-padding: 15; -fx-border-color: #ccc;">
+                <Label fx:id="labelPlaceholder" text="Sélectionnez un test pour lire le contenu." style="-fx-font-style: italic;"/>
+
+                <VBox fx:id="contentBox" spacing="10" visible="false">
+                    <HBox alignment="CENTER_LEFT" spacing="20">
+                        <Label fx:id="detailsTitle" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                        <Label fx:id="detailsScore" style="-fx-font-size: 20; -fx-text-fill: #27ae60; -fx-font-weight: bold;"/>
+                    </HBox>
+                    <Label fx:id="detailsMeta" style="-fx-text-fill: #7f8c8d;"/>
+                    <Separator/>
+                    <Label text="Analyse :" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="detailsText" wrapText="true"/>
+
+                    <HBox spacing="10">
+                        <ListView fx:id="listStrengths" prefHeight="100" HBox.hgrow="ALWAYS"/>
+                        <ListView fx:id="listWeaknesses" prefHeight="100" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </HBox>
+</VBox>

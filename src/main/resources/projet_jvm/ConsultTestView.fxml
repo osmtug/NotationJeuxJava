@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet_jvm.controller.ConsultTestController">
+
+    <top>
+        <VBox spacing="10.0">
+            <padding><Insets top="20" right="20" bottom="10" left="20"/></padding>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Button text="← Retour" onAction="#handleRetour" />
+                <Label text="Recherche de Jeux">
+                    <font><Font name="System Bold" size="20.0" /></font>
+                </Label>
+            </HBox>
+
+            <HBox spacing="10.0" alignment="CENTER">
+                <ComboBox fx:id="searchMode" prefWidth="150.0" />
+
+                <TextField fx:id="searchField" promptText="Saisissez votre recherche..."
+                           prefWidth="350.0" onKeyReleased="#handleSearch"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="gamesTable" prefHeight="400.0">
+            <columns>
+                <TableColumn fx:id="colName" text="Nom" prefWidth="250.0" />
+                <TableColumn fx:id="colGenre" text="Genre" prefWidth="150.0" />
+                <TableColumn fx:id="colPublisher" text="Éditeur" prefWidth="150.0" />
+                <TableColumn fx:id="colRating" text="Classement" prefWidth="100.0" />
+            </columns>
+            <placeholder>
+                <Label text="Aucun jeu trouvé." />
+            </placeholder>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Button fx:id="btnDetails" text="Voir les testes" onAction="#handleVoirDetails" disable="true" />
+        </HBox>
+    </bottom>
+</BorderPane>

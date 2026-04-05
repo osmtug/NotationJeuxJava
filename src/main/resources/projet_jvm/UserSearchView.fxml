@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.UserSearchController">
+    <top>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="← Retour" onAction="#handleRetour"/>
+                <Label text="Gestion des Membres" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            </HBox>
+            <TextField fx:id="searchField" promptText="Chercher un pseudo..." onKeyReleased="#handleSearch"/>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="userTable" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colPseudo" text="Pseudo" prefWidth="200"/>
+                <TableColumn fx:id="colType" text="Type de Profil" prefWidth="150"/>
+                <TableColumn fx:id="colStatus" text="Statut" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 20;">
+            <Button fx:id="btnViewProfile" text="Consulter Détails" onAction="#handleViewProfile" disable="true" style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

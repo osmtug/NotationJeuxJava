@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import projet_jvm.ui.PrivilegedButton?> <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Region?>
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet_jvm.controller.HomeController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <!-- Bouton gauche -->
+            <PrivilegedButton text="Déconnexion"
+                              onAction="#handleDeconnexion"
+                              targetProfile="PLAYER"
+                              style="-fx-background-color: #ff4444; -fx-text-fill: white;"/>
+
+            <!-- Espace qui pousse -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Bouton droite -->
+            <PrivilegedButton text="Mon compte"
+                              onAction="#handleCompte"
+                              targetProfile="PLAYER"
+                              style="-fx-background-color: #0080ff; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="0.0">
+            <padding>
+                <Insets top="20.0" bottom="20.0" left="20.0" right="20.0" />
+            </padding>
+
+            <VBox alignment="CENTER" spacing="5.0">
+                <Label text="Notation de jeu">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblStatus" text="Connecté en tant que : Invité" textFill="#666666">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <VBox.margin>
+                    <Insets bottom="40.0" />
+                </VBox.margin>
+            </VBox>
+
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; border: none;" VBox.vgrow="ALWAYS">
+                <VBox alignment="CENTER" spacing="15.0">
+                    <padding>
+                        <Insets left="50.0" right="50.0" />
+                    </padding>
+
+                    <PrivilegedButton text="Se connecter" onAction="#ouvrirConnexion"
+                                      prefWidth="200.0" targetProfile="GUEST" exclusive="true"/>
+
+                    <PrivilegedButton text="S'inscrire" onAction="#ouvrirInscription"
+                                      prefWidth="200.0" targetProfile="GUEST" exclusive="true"/>
+
+                    <PrivilegedButton text="Chercher un jeu" onAction="#ouvrirRecherche"
+                                      prefWidth="200.0" targetProfile="GUEST"
+                                      style="-fx-base: #44aa44;"/>
+
+                    <PrivilegedButton text="Chercher un teste" onAction="#ouvrirRechercheTest"
+                                      prefWidth="200.0" targetProfile="PLAYER"
+                                      style="-fx-base: #44aa44;"/>
+
+                    <PrivilegedButton text="tester un jeu" onAction="#ouvrirTester"
+                                      prefWidth="200.0" targetProfile="TESTER"
+                                      style="-fx-base: #0080ff;"/>
+
+                    <PrivilegedButton text="chercher un joueur" onAction="#ouvrirJoueur"
+                                      prefWidth="200.0" targetProfile="PLAYER"
+                                      style="-fx-base: #0080ff;"/>
+
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <bottom>
+    </bottom>
+
+</BorderPane>

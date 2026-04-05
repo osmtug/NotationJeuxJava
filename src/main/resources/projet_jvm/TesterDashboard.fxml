@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.TesterDashboardController" style="-fx-padding: 20;">
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="← Retour à l'accueil" onAction="#handleRetour" style="-fx-background-color: #607D8B; -fx-text-fill: white;"/>
+    </HBox>
+    <Label text="Tableau de bord des Missions (Testeurs)" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableMissions" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colGame" text="Jeu" prefWidth="150"/>
+            <TableColumn fx:id="colPlatform" text="Plateforme" prefWidth="100"/>
+            <TableColumn fx:id="colTokens" text="Jetons (Priorité)" prefWidth="120"/>
+            <TableColumn fx:id="colMyHours" text="Mes Heures" prefWidth="100"/>
+            <TableColumn fx:id="colAction" text="Action" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>

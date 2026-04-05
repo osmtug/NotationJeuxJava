@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.TestEditorController">
+    <VBox spacing="15" style="-fx-padding: 20;">
+        <Label text="RÉDACTION DU TEST OFFICIEL" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+        <HBox spacing="10">
+            <TextField fx:id="fieldBuild" promptText="Version du Build (ex: 1.0.4)"/>
+            <DatePicker fx:id="datePicker" promptText="Date du test"/>
+        </HBox>
+
+        <VBox spacing="5" style="-fx-border-color: #ccc; -fx-padding: 10;">
+            <Label text="Notes Générales (0 à 10)" style="-fx-font-weight: bold;"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Gameplay:" prefWidth="80"/> <Slider fx:id="slideGameplay" max="10" showTickLabels="true"/><Label fx:id="valGameplay" text="5.0"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Graphismes:" prefWidth="80"/> <Slider fx:id="slideGraphics" max="10" showTickLabels="true"/><Label fx:id="valGraphics" text="5.0"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label fx:id="labelGenreSpecific" text="Intérêt Genre:" prefWidth="80"/> <Slider fx:id="slideGenre" max="10" showTickLabels="true"/><Label fx:id="valGenre" text="5.0"/>
+            </HBox>
+        </VBox>
+
+        <TextArea fx:id="areaContent" prefHeight="150" promptText="Corps du test (votre analyse détaillée)..." wrapText="true"/>
+        <TextField fx:id="fieldConditions" promptText="Conditions du test (ex: Joué sur PS5 avec écran 4K)"/>
+
+        <HBox spacing="20">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Points Forts" textFill="GREEN"/>
+                <HBox><TextField fx:id="fieldStrength" HBox.hgrow="ALWAYS"/><Button text="+" onAction="#addStrength"/></HBox>
+                <ListView fx:id="listStrengths" prefHeight="80"/>
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Points Faibles" textFill="RED"/>
+                <HBox><TextField fx:id="fieldWeakness" HBox.hgrow="ALWAYS"/><Button text="+" onAction="#addWeakness"/></HBox>
+                <ListView fx:id="listWeaknesses" prefHeight="80"/>
+            </VBox>
+        </HBox>
+
+        <Button text="PUBLIER LE TEST OFFICIEL" onAction="#handlePublish" maxWidth="Infinity" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </VBox>
+</ScrollPane>

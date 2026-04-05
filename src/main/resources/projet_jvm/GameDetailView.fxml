@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.fxml.com/fxml" fx:controller="projet_jvm.controller.GameDetailController" style="-fx-padding: 20;">
+    <Button text="Retour" onAction="#handleRetour"/>
+
+    <HBox spacing="20">
+        <VBox spacing="10">
+            <Label fx:id="labelTitle" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            <Label fx:id="labelInfo" style="-fx-font-size: 14px;"/>
+            <Label text="Plateformes disponibles :"/>
+            <ListView fx:id="listPlatforms" prefHeight="100.0"/>
+        </VBox>
+
+        <VBox spacing="10" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
+            <Label text="Ma Collection" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="fieldHours" promptText="Heures jouées"/>
+            <Button text="Déclarer temps de jeu" onAction="#handleDeclareTime"/>
+        </VBox>
+        <VBox spacing="10" style="-fx-background-color: #e8f4fd; -fx-padding: 10; -fx-border-color: #2196f3;">
+            <Label text="Votes pour un Test" style="-fx-font-weight: bold;"/>
+            <Label fx:id="labelTotalTokens" text="Jetons totaux sur ce support : 0"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnVote" text="Placer un Jeton" onAction="#handlePlaceToken"/>
+                <Button fx:id="btnUnvote" text="Retirer un Jeton" onAction="#handleUnplaceToken"/>
+                <Label fx:id="labelMyTokens" text="(Il vous reste X jetons)"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Évaluations des joueurs" style="-fx-font-size: 18px;"/>
+    <TableView fx:id="tableEvaluations" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colPlayer" text="Joueur" prefWidth="100"/>
+            <TableColumn fx:id="colRating" text="Note" prefWidth="50"/>
+            <TableColumn fx:id="colComment" text="Commentaire" prefWidth="400"/>
+            <TableColumn fx:id="colActions" text="Utilité" prefWidth="150"/>
+        </columns>
+    </TableView>
+    <VBox spacing="10" style="-fx-background-color: #eeeeee; -fx-padding: 15; -fx-border-color: #cccccc;">
+        <Label text="Laisser une évaluation" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10">
+            <Slider fx:id="sliderScore" min="0" max="10" showTickLabels="true" showTickMarks="true" majorTickUnit="1" prefWidth="200"/>
+            <Label fx:id="labelScoreValue" text="5/10"/>
+        </HBox>
+        <TextArea fx:id="areaComment" prefHeight="60" promptText="Votre avis sur ce jeu..."/>
+        <Button text="Publier l'avis" onAction="#handleSendEvaluation"/>
+    </VBox>
+</VBox>
